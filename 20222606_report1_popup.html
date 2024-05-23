@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>장희영의 블로그</title>
+    <style>
+        header {text-align: center;}
+        hr {margin: 0; padding: 0;}
+        h1, .sungshin {margin: 0; padding: 0;}
+        .navigation {
+            display: flex; overflow: hidden; position: relative;
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .menu {
+            width: 3000px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .menu:hover {
+            background-color: black; color: white;
+        }
+        #search {display: flex; margin-left: 45px; margin-top: 15px;}
+        #text {
+            width: 130px;
+            height: 20px;
+            border-radius: 30px 0px 0px 30px;
+            border: 1px solid gray;
+            outline: none;
+        }
+        #text:focus {border-color: skyblue;}
+        #button {
+            border-radius: 0px 30px 30px 0px;
+            border: 1px solid gray;
+            width: 40px;
+        }
+        ul {list-style: none; padding-left: 1em;}
+        li > a {text-decoration: none; color: gray}
+        #middle {display: flex; width: 1000px; margin: 0 auto;}
+        .left_bar {float: left; width: 300px;}
+        section {float: left; width: 700px;}
+        .title {font-size: x-large; margin: 0; padding: 0;}
+        .date {font-size: small; margin: 0; padding: 0;}
+        .article {font-size: small;}
+        footer {text-align: center; color: blueviolet; font-size: small;}
+    </style>
+    <script type="text/javascript">
+        window.onload = pageLoad; // 페이지 로드시 pageLoad 실행
+        function pageLoad() {
+            let notShowPop = getCookieValue();
+            if(notShowPop != 'true') {
+                window.open("popUp.html","pop",
+                    "width=400,height=200,history=no,menubar=no,status=no");
+            }
+        }
+        // notShowPop 값 구하기
+        function getCookieValue() {
+            let result = 'false';
+            let cookies = document.cookie.split(';');
+		for (let i = 0; i < cookies.length; i++) {
+			let cookie = cookies[i].trim().split('=');
+			if (cookie[0] === 'notShowPop') {
+				result = cookie[1];
+			}
+		}
+		return result;
+        }
+        // 쿠키 삭제
+        function deleteCookie() {
+            document.cookie = 'notShowPop=false;path=/;expires=-1';
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="쿠키삭제" onclick="deleteCookie()" />
+    <header>
+        <br>
+        <br>
+        <h1>장희영의 블로그</h1>
+        <p class="sungshin">성신여자대학교</p>
+        <br>
+        <br>
+    </header>
+
+    <hr>
+
+    <nav class="navigation">
+        <div class="menu">HTML5</div>
+        <div class="menu">CSS3</div>
+        <div class="menu">Javascript</div>
+        <div>
+            <div id="search">
+                <input type="text" id="text">
+                <input type="button" id="button" value="검색">
+            </div> 
+        </div>
+    </nav>
+
+    <hr>
+    <div id="middle">
+        <nav class="left_bar">
+        <ul>
+            <li>
+                <b>카테고리</b>
+                <ul>
+                    <li>
+                        <a href="#">menu1</a>
+                        <ul>
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <b>즐겨찾기</b>
+                <ul>
+                    <li><a href="https://www.sungshin.ac.kr">성신여자대학교</a></li>
+                    <li><a href="https://www.naver.com">네이버</a></li>
+                    <li><a href="https://www.google.com">구글</a></li>
+                </ul>
+            </li>
+        </ul>
+        </nav>
+        <section>
+            <br>
+            <p class="title">HTML 개요와 활용</p>
+            <p class="date">2024년 5월 22일</p>
+            <br>
+            <img src="penguins.jpg" width="400px">
+            <br>
+            <br>
+            <div class="article">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure voluptatem cum asperiores cupiditate libero modi ratione tempore ipsum placeat quam aliquam, repellat natus possimus unde officiis aliquid quibusdam debitis deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum reiciendis omnis eveniet repellat ad enim nulla consequatur error optio animi. Eligendi ad temporibus doloremque minus inventore cupiditate tempore quaerat asperiores? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores molestias distinctio maiores fugit. Sunt, nihil sit, velit animi, cumque incidunt quod hic dolores repellat ullam enim sapiente non harum totam!</div>
+            <br>
+            <hr>
+        </section>
+    </div>
+    
+    <footer>
+        <br>
+        Copyright 20222606 장희영 2024
+        <br>
+    </footer>
+
+</body>
+</html>
