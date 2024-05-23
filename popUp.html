@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	function setPopUpStart(obj) {
+		// 체크박스 체크시
+		if(obj.checked == true) {
+			let expireDate = new Date();
+            //쿠키 유효시간 한 달 설정
+			expireDate.setMonth(expireDate.getMonth()+1); 
+			// 쿠키 재설정
+			document.cookie =
+                "notShowPop=true;path=/;expires="+expireDate.toGMTString();
+			window.close();
+		}
+	}
+</script>
+<body>
+	Pop Up!
+	<br><br><br><br><br><br><br>
+	<form>
+		<input type="checkbox" onClick="setPopUpStart(this)" />한 달간 팝업창 띄우지 않기
+	</form>
+</body>
+</html>
